@@ -13,6 +13,9 @@ engine = create_engine(
     settings.DATABASE_URL,
     pool_pre_ping=True,  # Enable connection health checks
     echo=False,  # Set to True for SQL query logging during development
+    connect_args={
+        "options": "-c search_path=public",
+    }
 )
 
 # Create session factory
